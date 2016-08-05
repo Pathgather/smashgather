@@ -33,7 +33,7 @@ int main(int argc, char* argv[]) {
 
     // Get all the character names in the training data directory.
     auto characters = glob("./img/training_data/*");
-    transform(characters.begin(), characters.end(), characters.begin(), basename);
+    std::transform(characters.begin(), characters.end(), characters.begin(), (string (&)(string const&))basename);
 
     // Init the training data matrix and fill it with the samples while also adding the correct
     // labels to the labels matrix.
